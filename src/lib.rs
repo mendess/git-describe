@@ -19,7 +19,6 @@ pub fn git_describe(input: TokenStream) -> TokenStream {
                 .map(ToString::to_string),
         );
     }
-    eprintln!("{:?}", v);
     let o = Command::new("git").args(v).output().unwrap();
     assert!(
         o.status.success(),
